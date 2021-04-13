@@ -30,7 +30,6 @@ public class NavigationScript : MonoBehaviour
     {
         mapGroup.SetActive(true);
         auswahlGroup.SetActive(false);
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     public void ArView()
