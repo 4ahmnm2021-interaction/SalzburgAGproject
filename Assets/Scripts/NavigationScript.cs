@@ -12,6 +12,8 @@ public class NavigationScript : MonoBehaviour
 
     public GameObject toggleMenu;
 
+    public GameObject mapGroup;
+
     // Update is called once per frame
     private void Start()
     {
@@ -22,6 +24,13 @@ public class NavigationScript : MonoBehaviour
     {
         informationGroup.SetActive(true);
         auswahlGroup.SetActive(false);
+    }
+
+    public void Map()
+    {
+        mapGroup.SetActive(true);
+        auswahlGroup.SetActive(false);
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     public void ArView()
