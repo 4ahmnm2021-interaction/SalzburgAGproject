@@ -14,10 +14,53 @@ public class NavigationScript : MonoBehaviour
 
     public GameObject mapGroup;
 
+    public GameObject homeScreen;
+
+    public GameObject sidepanel;
+
     // Update is called once per frame
     private void Start()
     {
+        homeScreen.SetActive(true);
+    }
+
+    public void Home()
+    {
+        homeScreen.SetActive(true);
+    }
+
+    public void Burger()
+    {
+        sidepanel.SetActive(true);
+    }
+
+    public void BurgerOff()
+    {
+        sidepanel.SetActive(false);
+    }
+
+    public void MenuInfo()
+    {
+        informationGroup.SetActive(true);
+        homeScreen.SetActive(false);
+    }
+
+    public void MenuAuswahl()
+    {
         auswahlGroup.SetActive(true);
+        homeScreen.SetActive(false);
+    }
+
+    public void MenuAr()
+    {
+        arScreen.SetActive(true);
+        homeScreen.SetActive(false);
+    }
+
+    public void MenuMap()
+    {
+        mapGroup.SetActive(true);
+        homeScreen.SetActive(false);
     }
 
     public void ErsterSchein()
