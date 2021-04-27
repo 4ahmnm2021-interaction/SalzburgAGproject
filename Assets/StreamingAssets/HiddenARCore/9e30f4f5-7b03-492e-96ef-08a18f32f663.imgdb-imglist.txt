@@ -1,0 +1,1 @@
+213a2163fb20487e856d92ad06c0906e|Assets/Scripts/AR/hiro_marker.png|0.3

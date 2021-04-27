@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
-  m_Name: X
+  m_Name: ReferenceImageLibrary
   m_EditorClassIdentifier: 
   m_GuidLow: 5273287469166556405
   m_GuidHigh: 7203000246489116566
@@ -19,8 +19,8 @@ MonoBehaviour:
       m_GuidLow: 5223888733211337059
       m_GuidHigh: 7967078875732798853
     m_SerializedTextureGuid:
-      m_GuidLow: 4230012809084281113
-      m_GuidHigh: 17885549366669036314
+      m_GuidLow: 16696127607704789224
+      m_GuidHigh: 11098619449569599643
     m_Size: {x: 0.3, y: 0.3}
     m_SpecifySize: 1
     m_Name: marker
