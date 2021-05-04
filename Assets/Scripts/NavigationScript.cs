@@ -19,6 +19,15 @@ public class NavigationScript : MonoBehaviour
     public GameObject sidepanel;
 
     // Update is called once per frame
+    private void Deactivate()
+    {
+        sidepanel.SetActive(false);
+        mapGroup.SetActive(false);
+        toggleMenu.SetActive(false);
+        arScreen.SetActive(false);
+        informationGroup.SetActive(false);
+        auswahlGroup.SetActive(false);
+    }
     private void Start()
     {
         homeScreen.SetActive(true);
@@ -27,16 +36,33 @@ public class NavigationScript : MonoBehaviour
     public void Home()
     {
         homeScreen.SetActive(true);
+        Deactivate();
+
     }
 
     public void Burger()
     {
-        sidepanel.SetActive(true);
+        if (sidepanel.activeSelf)
+        {
+        sidepanel.SetActive(false);
+        }
+        else
+        {
+            sidepanel.SetActive(true);
+        }
+        
     }
 
-    public void BurgerOff()
+    private void Update()
     {
-        sidepanel.SetActive(false);
+        if (arScreen.activeSelf)
+        {
+            toggleMenu.SetActive(true);
+        }
+        else
+        {
+            toggleMenu.SetActive(false);
+        }
     }
 
     public void MenuInfo()
