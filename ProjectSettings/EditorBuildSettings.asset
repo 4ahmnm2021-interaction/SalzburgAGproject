@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/prototyp.unity
     guid: 389738acc251c584d9094550ad46fa6b
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: e8e0018aa45518c40aa01197c33e0d39,
+      type: 2}
+    com.unity.xr.management.arcore_loader: {fileID: 11400000, guid: e5cd8d1dacfdf594a8d458f4caa246e0,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f20849a5ca259234cbc09dbb78725f3d,
+      type: 2}
