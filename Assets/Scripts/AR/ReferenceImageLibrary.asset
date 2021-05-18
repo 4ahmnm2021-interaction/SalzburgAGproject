@@ -23,5 +23,15 @@ MonoBehaviour:
       m_GuidHigh: 11098619449569599643
     m_Size: {x: 0.3, y: 0.3}
     m_SpecifySize: 1
-    m_Name: marker
-    m_Texture: {fileID: 0}
+    m_Name: G010_1
+    m_Texture: {fileID: 2800000, guid: 6dd620e88f99e7b49b60d61c9637069a, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5570350544821396447
+      m_GuidHigh: 2972273468758284942
+    m_SerializedTextureGuid:
+      m_GuidLow: 329957489057119150
+      m_GuidHigh: 207847727712092443
+    m_Size: {x: 0.3, y: 0.29796612}
+    m_SpecifySize: 1
+    m_Name: G010_2
+    m_Texture: {fileID: 2800000, guid: 8e3abbae3e9604941bc1a639686ce202, type: 3}
