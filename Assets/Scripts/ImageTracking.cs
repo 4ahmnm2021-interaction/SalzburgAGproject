@@ -22,11 +22,11 @@ public class ImageTracking : MonoBehaviour
     }
     private void OnEnable()
     {
-        trackedImageManager.trackedImagesChanged += ImageChanged;
+        //trackedImageManager.trackedImagesChanged += ImageChanged;
     }
     private void OnDisable()
     {
-        trackedImageManager.trackedImagesChanged -= ImageChanged;
+        //trackedImageManager.trackedImagesChanged -= ImageChanged;
     }
 
 }
