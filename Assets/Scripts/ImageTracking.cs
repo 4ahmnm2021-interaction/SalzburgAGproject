@@ -49,6 +49,7 @@ public class ImageTracking : MonoBehaviour
     void ActivateTrackedObject(string _imageName)
     {
         allObjects[_imageName].SetActive(true);
+        //trackedImageManager.trackedImagesChanged -= ImageChanged;
     }
 
     public void OnImageChanged(ARTrackedImagesChangedEventArgs _args)
