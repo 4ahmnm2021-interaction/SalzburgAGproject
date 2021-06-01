@@ -3,30 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 public class ImageTracking : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] placeablePrefabs;
-    private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
-    private ARTrackedImageManager trackedImageManager;
-    // Start is called before the first frame update
-    private void Awake()
+    [Header("The length of this list must match the number of images in Reference Image Library")]
+    public List<GameObject> ObjectsToPlace;
+
+    private int refImageCount;
+    private Dictionary<string, GameObject> allObjects;
+    private ARTrackedImageManager arTrackedImageManager;
+    private IReferenceImageLibrary refLibrary;
+
+    void Awake()
     {
-        trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
-        foreach(GameObject prefab in placeablePrefabs)
-        {
-            GameObject newPrefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            newPrefab.name = prefab.name;
-            spawnedPrefabs.Add(prefab.name, newPrefab);
-        }
-    }
-    private void OnEnable()
-    {
-        trackedImageManager.trackedImagesChanged += ImageChanged;
-    }
-    private void OnDisable()
-    {
-        trackedImageManager.trackedImagesChanged -= ImageChanged;
+        arTrackedImageManager = GetComponent<ARTrackedImageManager>();
     }
 
+    private void OnEnable()
+    {
+        arTrackedImageManager.trackedImagesChanged += OnImageChanged;
+    }
+
+    private void OnDisable()
+    {
+        arTrackedImageManager.trackedImagesChanged -= OnImageChanged;
+    }
+
+    private void Start()
+    {
+        refLibrary = arTrackedImageManager.referenceLibrary;
+        refImageCount = refLibrary.count;
+        LoadObjectDictionary();
+    }
+
+    void LoadObjectDictionary()
+    {
+        allObjects = new Dictionary<string, GameObject>();
+        for (int i = 0; i < refImageCount; i++)
+        {
+            allObjects.Add(refLibrary[i].name, ObjectsToPlace[i]);
+            ObjectsToPlace[i].SetActive(false);
+        }
+    }
+
+    void ActivateTrackedObject(string _imageName)
+    {
+        allObjects[_imageName].SetActive(true);
+    }
+
+    public void OnImageChanged(ARTrackedImagesChangedEventArgs _args)
+    {
+        foreach (var addedImage in _args.added)
+        {
+            ActivateTrackedObject(addedImage.referenceImage.name);
+        }
+
+        foreach (var updated in _args.updated)
+        {
+            allObjects[updated.referenceImage.name].transform.position = updated.transform.position;
+            allObjects[updated.referenceImage.name].transform.rotation = updated.transform.rotation;
+        }
+    }
 }
