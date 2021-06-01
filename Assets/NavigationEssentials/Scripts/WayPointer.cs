@@ -42,9 +42,9 @@ public class WayPointer : MonoBehaviour
         lookAtAngle = transform.localEulerAngles;
 
         if (lookAtAngle.z < 300)
-            transform.localEulerAngles = new Vector3(lookAtAngle.x * strength, -90, 0);
-        else
             transform.localEulerAngles = new Vector3(lookAtAngle.x * strength, 90, 0);
+        else
+            transform.localEulerAngles = new Vector3(lookAtAngle.x * strength, -90, 0);
     }
 
     private bool IsVisible(GameObject visibleObject)

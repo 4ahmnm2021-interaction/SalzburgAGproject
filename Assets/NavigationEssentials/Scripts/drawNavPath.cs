@@ -32,6 +32,7 @@ public class drawNavPath : MonoBehaviour
 
     public GameObject checkpoint;
 
+    public float waypointDistance = 1; 
     int numberofCorners;
     bool corrutineIsRunning; 
 
@@ -176,9 +177,25 @@ public class drawNavPath : MonoBehaviour
             int i = 0;
             foreach (Vector3 corner in path.corners)
             {
-                GameObject currentCheckpoint = Instantiate(checkpoint);
-                currentCheckpoint.GetComponent<PositionWaypoint>().id = i; 
-                checkpoints.Add(currentCheckpoint);
+                if (i == path.corners.Length-1)
+                {
+                    GameObject currentCheckpoint = Instantiate(checkpoint);
+                    currentCheckpoint.GetComponent<PositionWaypoint>().id = i;
+                    checkpoints.Add(currentCheckpoint);
+                    
+                }
+                else
+                {
+                    if (waypointDistance < Vector3.Distance(corner, path.corners[i + 1]))
+                    {
+                        GameObject currentCheckpoint = Instantiate(checkpoint);
+                        currentCheckpoint.GetComponent<PositionWaypoint>().id = i;
+                        checkpoints.Add(currentCheckpoint);
+
+                    }
+                }
+                        
+             
                 i++;
             }
             numberofCorners = path.corners.Length;
