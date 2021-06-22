@@ -17,6 +17,8 @@ public class NavigationScript : MonoBehaviour
     public GameObject homeScreen;
 
     public GameObject sidepanel;
+    public GameObject SearchBars;
+    public GameObject Header;
 
     // Update is called once per frame
     private void Deactivate()
@@ -31,12 +33,16 @@ public class NavigationScript : MonoBehaviour
     private void Start()
     {
         homeScreen.SetActive(true);
+        SearchBars.SetActive(true);
+        Deactivate();
     }
 
     public void Home()
     {
         homeScreen.SetActive(true);
+        SearchBars.SetActive(true);
         Deactivate();
+        Header.SetActive(true);
 
     }
 
@@ -68,6 +74,7 @@ public class NavigationScript : MonoBehaviour
     public void MenuInfo()
     {
         informationGroup.SetActive(true);
+        SearchBars.SetActive(false);
         homeScreen.SetActive(false);
     }
 
@@ -81,24 +88,31 @@ public class NavigationScript : MonoBehaviour
     {
         arScreen.SetActive(true);
         homeScreen.SetActive(false);
+        SearchBars.SetActive(false);
+        
     }
 
     public void MenuMap()
     {
         mapGroup.SetActive(true);
         homeScreen.SetActive(false);
+        SearchBars.SetActive(false);
+        Header.SetActive(false);
     }
 
     public void ErsterSchein()
     {
         informationGroup.SetActive(true);
         auswahlGroup.SetActive(false);
+        SearchBars.SetActive(false);
     }
 
     public void Map()
     {
         mapGroup.SetActive(true);
         auswahlGroup.SetActive(false);
+        SearchBars.SetActive(false);
+        Header.SetActive(false);
     }
 
     public void ArView()
@@ -106,6 +120,7 @@ public class NavigationScript : MonoBehaviour
         arScreen.SetActive(true);
         toggleMenu.SetActive(true);
         informationGroup.SetActive(false);
+        Header.SetActive(true);
     }
 
     public void SalzburgAGButtonInfo()
@@ -120,4 +135,6 @@ public class NavigationScript : MonoBehaviour
         arScreen.SetActive(false);
         toggleMenu.SetActive(false);
     }
+
+
 }
